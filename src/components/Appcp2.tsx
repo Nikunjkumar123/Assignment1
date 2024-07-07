@@ -3,7 +3,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Checkbox from '@mui/material/Checkbox';
 
-// Hardcoded JSON data for departments and sub-departments
 const departmentsData = [
   {
     department: 'customer_service',
@@ -19,7 +18,6 @@ const DepartmentList: React.FC = () => {
   const [expanded, setExpanded] = useState<{ [key: string]: boolean }>({});
   const [selected, setSelected] = useState<{ [key: string]: boolean }>({});
 
-  // Toggle expand/collapse for a department
   const toggleExpand = (department: string) => {
     setExpanded((prevExpanded) => ({
       ...prevExpanded,
@@ -27,7 +25,6 @@ const DepartmentList: React.FC = () => {
     }));
   };
 
-  // Toggle selection for a department or sub-department
   const toggleSelect = (deptOrSubDept: string) => {
     setSelected((prevSelected) => ({
       ...prevSelected,
@@ -35,7 +32,6 @@ const DepartmentList: React.FC = () => {
     }));
   };
 
-  // Select all sub-departments when a department is selected
   const selectDepartment = (department: string) => {
     setSelected((prevSelected) => {
       const newSelected = { ...prevSelected };
@@ -48,7 +44,6 @@ const DepartmentList: React.FC = () => {
     });
   };
 
-  // Handle selection of a sub-department, and update parent department if all sub-departments are selected
   const handleSubDeptSelect = (department: string, subDept: string) => {
     setSelected((prevSelected) => {
       const newSelected = { ...prevSelected, [subDept]: !prevSelected[subDept] };
@@ -98,8 +93,7 @@ const DepartmentList: React.FC = () => {
               ))}
             </ul>
           )}
-        </div>
-      ))}
+        </div> ))}
     </div>
   );
 };
